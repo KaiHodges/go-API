@@ -9,7 +9,7 @@ type CoinBalanceParams struct {
 	Username string 
 }
 
-type CoinBalanceResponce struct {
+type CoinBalanceResponse struct {
 	// Success code, usually 200 
 	Code int
 	// Account balance 

@@ -38,7 +38,7 @@ func GetCoinBalance(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	var response = api.CoinBalanceResponce{
+	var response = api.CoinBalanceResponse{
 		Balance: (*tokenDetails).Coins, 
 		Code: http.StatusOK, 
 	}
