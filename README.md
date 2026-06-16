@@ -12,13 +12,40 @@ curl "http://localhost:8000/account/coins?username=alex" \
 ```
 Mock users available: alex/123ABC, jason/456DEF, marie/789DEF. 
 ## Concepts covered 
-* *Routing* *with* *chi*,
+* **Routing** **with** **chi**,
 
     Grouped routes under /account with route-scoped middleware. 
-* *Middleware*
+* **Middleware**
   
-    A global StripSlashes middleware plus a custom Authorization middleware that validates the username and token before the request reaches the handler.  
-## To run the API: 
+    A global StripSlashes middleware plus a custom *Authorization* middleware that validates the username and token before the request reaches the handler.
+* **Interface-based** **Design**
+
+    The database is defined as a *DatabaseInterface*, with a *mockDB* implementation. Swapping in a real database means writing one new implementation, no handler changes.
+* **Structured** **error** **handling**
+
+    Centralized *RequestErrorHandler* and *InternalErrorHandler* return consistent JSON error responses with status codes.
+
+* **Request** **parsing**
+
+    Query params decoded into structs with *gorilla/schema*.
+* **Structured logging**
+
+    Logrus with caller reporting enabled.
+
+## Project structure 
 ```
-go run cmd/api/main.go  
+api/              Shared types and error handlers
+cmd/api/          Application entry point (main.go)
+internal/         
+  handlers/       Route definitions and request handlers 
+  middleware/     Authorization middleware
+  tools/          Database interface and mock implementation 
 ```
+## Running the API 
+```
+go run ./cmd/api
+```
+The server starts on localhost:8000 
+
+## Testing
+Endpoints were tested and verified with Postman. 
