@@ -1,4 +1,4 @@
-# go-api
+# go-API
 Simple API to get more familiar with Go. 
 
 Created *handlers*, *middleware* and *internal tools* to query mock user data.
