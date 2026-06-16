@@ -13,7 +13,7 @@ curl "http://localhost:8000/account/coins?username=alex" \
 Mock users available: alex/123ABC, jason/456DEF, marie/789DEF. 
 ## Concepts covered 
 * *Routing* *with* *chi*,
-....Grouped routes under /account with route-scoped middleware. 
+.... Grouped routes under /account with route-scoped middleware. 
 * *Middleware*
 .... A global StripSlashes middleware plus a custom Authorization middleware that validates the username and token before the request reaches the handler.  
 ## To run the API: 
